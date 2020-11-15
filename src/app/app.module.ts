@@ -16,6 +16,8 @@ import { BlogComponent } from './blog/blog.component';
 import { SingleblogComponent } from './singleblog/singleblog.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { AddtocartComponent } from './addtocart/addtocart.component';
+import { MycartheaderComponent } from './mycartheader/mycartheader.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { SignupComponent } from './signup/signup.component';
     BlogComponent,
     SingleblogComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    AddtocartComponent,
+    MycartheaderComponent
   ],
   imports: [
     BrowserModule,

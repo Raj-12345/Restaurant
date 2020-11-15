@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Output} from '@angular/core';
 
 @Component({
   selector: 'app-menu',
@@ -8,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
+  @Output()totalorderno:number;
   constructor() { }
+  takeCart()
+  { 
+ this.totalorderno=parseInt(sessionStorage.getItem('totalorderno'));
+  }
 
   ngOnInit(): void {
   }

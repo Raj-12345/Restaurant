@@ -1,4 +1,4 @@
-	<app-header></app-header>
+	<app-mycartheader [taketotalno]=totalorderno></app-mycartheader>
 	<!-- Start All Pages -->
 	<div class="all-page-title page-breadcrumb">
 		<div class="container text-center">
@@ -10,9 +10,11 @@
 		</div>
 	</div>
     <!-- End All Pages -->
-    <app-menu-list>
-
-    </app-menu-list>
+      		<!-- Start Menu -->
+	<app-menu-list   (sendCart)="takeCart()">
+		
+	</app-menu-list>
+    <!-- End Menu -->
     <app-footer>
         
     </app-footer>
