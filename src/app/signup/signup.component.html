@@ -1,25 +1,87 @@
-<!-- Start header -->
-<header class="top-navbar">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="../../assets/images/logo.png" alt="" />
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food"
-                aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbars-rs-food">
-                <ul class="navbar-nav ml-auto">
-                <a class="nav-link  btn-primary btn-sm" routerLink="/login">Login</a>
-                </ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light  sticky-top ">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="../../assets/images/logo.png" alt="" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food"
+            aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbars-rs-food">
+            <ul class="navbar-nav ml-auto">
+                <a class="  btn-success btn-sm" routerLink="/login">Login</a>
+              
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container w-50 form">
+    <h1 style="color:#d5592a">Sign Up</h1>
+    <form [formGroup]="signupform" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            <input type="text" formControlName="name" class="form-control" placeholder="name"
+                [ngClass]="{'is-invalid':submitted && signupform.controls.name.errors}" />
+            <div *ngIf="submitted && signupform.controls.name.errors">
+                <span *ngIf="signupform.controls.name.errors.required">
+                    Name is required
+                </span>
+                <span *ngIf="signupform.controls.name.errors.minlength">
+                    Please provide Name
+                </span>
             </div>
         </div>
-    </nav>
-</header>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="text" formControlName="email" class="form-control" placeholder="Email"
+                [ngClass]="{'is-invalid':submitted && signupform.controls.email.errors}" />
+            <div *ngIf="submitted && signupform.controls.email.errors">
+                <span *ngIf="signupform.controls.email.errors.required">
+                    Email is required
+                </span>
+                <span *ngIf="signupform.controls.email.errors.email">
+                    Please provide valid email
+                </span>
+              
+            </div>
+            <span *ngIf="emailExists">
+                Email  already exists please provide valid email
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" formControlName="password" class="form-control"
+                [ngClass]="{'is-invalid':submitted && signupform.controls.password.errors}" id="exampleInputPassword1"
+                placeholder="Password">
+            <div *ngIf="submitted && signupform.controls.password.errors">
+                <span *ngIf="signupform.controls.password.errors.required">
+                    please provide password
+                </span>
+                <span *ngIf="signupform.controls.password.errors.minlength">
+                    Please provide password of atleast 8 charactar
+                </span>
+            </div>
+        </div>
 
 
-
-
-
-
+        <div class="form-group">
+            <label for="exampleInputPassword1">ConfirmPassword</label>
+            <input type="password" formControlName="confirmpassword" class="form-control"
+                [ngClass]="{'is-invalid':submitted && signupform.controls.confirmpassword.errors}"
+                id="exampleInputPassword1" placeholder="Password">
+            <div *ngIf="submitted && signupform.controls.confirmpassword.errors">
+                <span *ngIf="signupform.controls.confirmpassword.errors.required">
+                    Please provide Confirm Password
+                </span>
+            </div>
+            <div *ngIf="submitted && signupform.controls.confirmpassword.value!=''">
+                <span *ngIf="signupform.controls.confirmpassword.value!=signupform.controls.password.value">
+                    Please Provide same password as above
+                </span>
+            </div>
+        </div>
+     
+        <button type="submit" class="btn-sm btn-primary">Signup</button>
+    </form>
+</div>

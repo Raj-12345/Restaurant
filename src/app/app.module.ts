@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {ReactiveFormsModule} from '@angular/forms';
+import{FormsModule} from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -18,7 +19,8 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AddtocartComponent } from './addtocart/addtocart.component';
 import { MycartheaderComponent } from './mycartheader/mycartheader.component';
-
+import {UsercheckGuard} from '../app/usercheck.guard';
+import {HttpClientModule} from '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,9 +42,12 @@ import { MycartheaderComponent } from './mycartheader/mycartheader.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UsercheckGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

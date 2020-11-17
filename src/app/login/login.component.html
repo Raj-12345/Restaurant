@@ -1,20 +1,56 @@
-<!-- Start header -->
-<header class="top-navbar">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="../../assets/images/logo.png" alt="" />
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food"
-                aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbars-rs-food">
-                <ul class="navbar-nav ml-auto">
-                <a class="nav-link  btn-danger btn-sm" routerLink="/signup">Signup</a>
-              
-                </ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light  sticky-top ">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="../../assets/images/logo.png" alt="" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food"
+            aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbars-rs-food">
+            <ul class="navbar-nav ml-auto">
+                <a class=" btn-primary btn-sm" routerLink="/signup">Signup</a>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container w-50 form">
+    <h1 style="color:#d5592a">Login</h1>
+    <form [formGroup]="loginform" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="text" formControlName="email" class="form-control" placeholder="Email"
+                [ngClass]="{'is-invalid':submitted && loginform.controls.email.errors}" />
+            <div *ngIf="submitted && loginform.controls.email.errors">
+                <span *ngIf="loginform.controls.email.errors.required">
+                    Email is required
+                </span>
+                <span *ngIf="loginform.controls.email.errors.email">
+                    Please provide valid email
+                </span>
             </div>
         </div>
-    </nav>
-</header>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" formControlName="password" class="form-control"
+                [ngClass]="{'is-invalid':submitted && loginform.controls.password.errors}" id="exampleInputPassword1"
+                placeholder="Password">
+            <div *ngIf="submitted && loginform.controls.password.errors">
+                <span *ngIf="loginform.controls.password.errors.required">
+                    please provide password
+                </span>
+                <span *ngIf="loginform.controls.password.errors.minlength">
+                    Please provide password of atleast 8 charactar
+                </span>
+            </div>
+            <span *ngIf="invalid">
+                Please provide valid email and password
+            </span>
+        </div>
+
+
+        <button type="submit" class="btn-sm btn-success">Login</button>
+    </form>
+</div>

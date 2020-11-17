@@ -1,0 +1,7 @@
+/* mouse over link */
+a:hover {
+    color: #FF00FF;
+}
+a:active {
+    color: #0000FF;
+  }

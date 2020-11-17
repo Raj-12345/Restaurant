@@ -1,5 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
-
+import{Router} from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,10 +8,17 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+login
+  constructor(private router:Router) { }
+  logOut()
+  {
+    sessionStorage.clear();
+    this.router.navigate(['/login']);
+  }
 
   ngOnInit(): void {
-
+this.login=sessionStorage.getItem('login');
+console.log(this.login);
   }
 
 }

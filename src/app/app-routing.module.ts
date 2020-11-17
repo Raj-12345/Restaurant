@@ -11,15 +11,15 @@ import { MenuComponent } from './menu/menu.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { SignupComponent } from './signup/signup.component';
 import { SingleblogComponent } from './singleblog/singleblog.component';
-
+import{UsercheckGuard} from '../app/usercheck.guard'
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
-  {path:'menu',component:MenuComponent},
+  {path:'menu',component:MenuComponent,canActivate:[UsercheckGuard]},
   {path:'aboutus',component:AboutusComponent},
   {path:'contact',component:ContactComponent},
-  {path:'reservation',component:ReservationComponent},
+  {path:'reservation',component:ReservationComponent,canActivate:[UsercheckGuard]},
   {path:'gallary',component:GallaryComponent},
   {path:'blog',component:BlogComponent},
   {path:'singleblog',component:SingleblogComponent},
