@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, NgForm, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { MyserviveService } from '../myservive.service'
+import { MyserviceService } from '../myservice.service'
 import{Router} from '@angular/router'
 
 @Component({
@@ -13,7 +13,7 @@ export class SignupComponent implements OnInit {
 emailExists:boolean = false;
   submitted: boolean = false;
   signupform: FormGroup;
-  constructor(private formbulider: FormBuilder,private router:Router,private myservice: MyserviveService) {
+  constructor(private formbulider: FormBuilder,private router:Router,private myservice: MyserviceService) {
     this.signupform = this.formbulider.group(
       {
         name: ["", [Validators.required, Validators.minLength(3)]],

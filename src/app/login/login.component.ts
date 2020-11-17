@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, NgForm, FormBuilder, FormControl, Validators } from '@angular/forms';
-import{MyserviveService} from '../myservive.service'
+import{MyserviceService} from '../myservice.service'
 import {Router} from '@angular/router'
 @Component({
   selector: 'app-login',
@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 invalid:boolean=false;
   submitted: boolean = false;
   loginform: FormGroup;
-  constructor(private formbulider: FormBuilder,private router:Router,private myservice: MyserviveService) {
+  constructor(private formbulider: FormBuilder,private router:Router,private myservice:MyserviceService) {
     this.loginform = this.formbulider.group(
       {
 
