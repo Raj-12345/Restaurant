@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup.component';
 
 describe('SignupComponent', () => {
