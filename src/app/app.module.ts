@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule} from '@angular/forms';
 import{FormsModule} from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +20,11 @@ import { SignupComponent } from './signup/signup.component';
 import { AddtocartComponent } from './addtocart/addtocart.component';
 import { MycartheaderComponent } from './mycartheader/mycartheader.component';
 import {UsercheckGuard} from '../app/usercheck.guard';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import{MyserviceService} from './myservice.service';
+import{Router} from '@angular/router';
+import {FormBuilder} from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +51,7 @@ import {HttpClientModule} from '@angular/common/http'
     FormsModule,
     HttpClientModule
   ],
-  providers: [UsercheckGuard],
+  providers: [UsercheckGuard,MyserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

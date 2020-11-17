@@ -7,8 +7,9 @@ import{Router} from '@angular/router'
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css', '../../assets/css/bootstrap.min.css',
-    '../../assets/css/style.css', '../../assets/css/responsive.css', '../../assets/css/custom.css']
-})
+    '../../assets/css/style.css', '../../assets/css/responsive.css', '../../assets/css/custom.css'],
+   
+  })
 export class SignupComponent implements OnInit {
 emailExists:boolean = false;
   submitted: boolean = false;
