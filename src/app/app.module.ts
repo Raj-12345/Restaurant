@@ -20,10 +20,11 @@ import { SignupComponent } from './signup/signup.component';
 import { AddtocartComponent } from './addtocart/addtocart.component';
 import { MycartheaderComponent } from './mycartheader/mycartheader.component';
 import {UsercheckGuard} from '../app/usercheck.guard';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import{MyserviceService} from './myservice.service';
-import{Router} from '@angular/router';
-import {FormBuilder} from '@angular/forms';
+
+import{SocialLoginModule,SocialAuthServiceConfig} from 'angularx-social-login' 
+import{GoogleLoginProvider} from 'angularx-social-login' 
 
 @NgModule({
   declarations: [
@@ -45,13 +46,31 @@ import {FormBuilder} from '@angular/forms';
     MycartheaderComponent
   ],
   imports: [
+    SocialLoginModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule
   ],
-  providers: [UsercheckGuard,MyserviceService],
+  providers: [UsercheckGuard,MyserviceService,
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '733636692687-m6bhdumr77osmltvpv8pd5df0d89p33s.apps.googleusercontent.com'
+            )
+          },
+         
+        ]
+      } as SocialAuthServiceConfig
+    }
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

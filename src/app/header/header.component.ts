@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import{Router} from '@angular/router';
+import { SocialAuthService } from "angularx-social-login";
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -10,10 +11,12 @@ import{Router} from '@angular/router';
 export class HeaderComponent implements OnInit {
 
 login
-  constructor(private router:Router) { }
+  constructor(private socailAuthService:SocialAuthService,private router:Router) { }
   logOut()
   {
-    sessionStorage.clear();
+    this.socailAuthService.signOut();
+    console.log("user logout");
+     sessionStorage.clear();
     this.router.navigate(['/login']);
   }
 

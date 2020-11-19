@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, NgForm, FormBuilder, FormControl, Validators } from '@angular/forms';
 import{MyserviceService} from '../myservice.service'
 import {Router} from '@angular/router'
+import { SocialAuthService } from "angularx-social-login";
+import { SocialUser,GoogleLoginProvider } from "angularx-social-login";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,9 +13,10 @@ import {Router} from '@angular/router'
   })
 export class LoginComponent implements OnInit {
 invalid:boolean=false;
+user:SocialUser;
   submitted: boolean = false;
   loginform: FormGroup;
-  constructor(private formbulider: FormBuilder,private router:Router,private myservice:MyserviceService) {
+  constructor(private socailAuthService:SocialAuthService,private formbulider: FormBuilder,private router:Router,private myservice:MyserviceService) {
     this.loginform = this.formbulider.group(
       {
 
@@ -26,7 +29,26 @@ invalid:boolean=false;
     )
   }
 
+
   ngOnInit(): void {
+   
+     this.socailAuthService.authState.subscribe((user)=> {
+     
+        if(user)
+        {
+          sessionStorage.setItem('login','true');
+    this.user=user;
+    
+       this.router.navigate(['/menu']);
+        }
+        else
+        {
+        
+          this.user=user;
+          this.router.navigate(['/login']);
+     
+        }
+       })
   }
   onSubmit() {
     this.submitted = true;
@@ -54,4 +76,10 @@ invalid:boolean=false;
     }
 
   }
+  gmailSignIn() {
+     this.socailAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
+     
+     
+  }
+
 }

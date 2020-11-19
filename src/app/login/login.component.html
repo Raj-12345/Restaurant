@@ -14,7 +14,7 @@
         </div>
     </div>
 </nav>
-<div class="container w-50 form">
+<div class="container w-50 form  text-center">
     <h1 style="color:#d5592a">Login</h1>
     <form [formGroup]="loginform" (ngSubmit)="onSubmit()">
 
@@ -50,7 +50,12 @@
             </span>
         </div>
 
-
-        <button type="submit" class="btn-sm btn-success">Login</button>
+          
+        <button type="submit" class="btn-sm btn-success">Login</button><br>
+      
     </form>
+    <button href="#" class="google btn-sm mt-3" (click)="gmailSignIn()">
+        <i class="fa fa-google fa-fw"></i> Login with Google+
+    </button>
+  
 </div>

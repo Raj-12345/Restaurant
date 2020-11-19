@@ -6,3 +6,13 @@ span
 {
     color: red;
 }
+.google {
+    background-color: #dd4b39;
+    color: white;
+  }
+  input:hover,
+.btn:hover {
+  opacity: 1;
+}
+
+
