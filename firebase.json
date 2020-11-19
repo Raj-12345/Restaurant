@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/restaurant",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
