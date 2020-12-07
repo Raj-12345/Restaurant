@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+<app-header></app-header>
+
+<div class="card">
+  
+  <img   [src]="photoUrl" width="100%" height="100%" class="rounded-circle" alt="...loading">
+ 
+  <h1>{{name}}</h1>
+  <p class="title">{{email}}</p>
+  <div style="margin: 24px 0;">
+    <a href="#"><i class="fa fa-dribbble"></i></a> 
+    <a href="#"><i class="fa fa-twitter"></i></a>  
+    <a href="#"><i class="fa fa-linkedin"></i></a>  
+    <a href="#"><i class="fa fa-facebook"></i></a> 
+  </div>
+  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+  data-target="#exampleModal">
+  update password
+</button>
+</div>
+
+<!-- model-->
+<div class="modal fade" id="exampleModal" tabindex="-1"
+  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Update Password</h5>
+              <!-- <button type="button" class="close" data-dismiss="modal"
+                  aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button> -->
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="updatepassword" (ngSubmit)="onSubmit()">
+         
+              <div class="form-group">
+                <label for="exampleInputPassword1">New Password</label>
+                <input type="password" formControlName="password" class="form-control"
+                    [ngClass]="{'is-invalid':submitted && updatepassword.controls.password.errors}" id="exampleInputPassword1"
+                    placeholder="Password">
+                <div *ngIf="submitted && updatepassword.controls.password.errors">
+                    <span *ngIf="updatepassword.controls.password.errors.required">
+                        please provide password
+                    </span>
+                    <span *ngIf="updatepassword.controls.password.errors.minlength">
+                        Please provide password of atleast 8 charactar
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">ConfirmPassword</label>
+                <input type="password" formControlName="confirmpassword" class="form-control"
+                    [ngClass]="{'is-invalid':submitted && updatepassword.controls.confirmpassword.errors}"
+                    id="exampleInputPassword1" placeholder="Password">
+                <div *ngIf="submitted && updatepassword.controls.confirmpassword.errors">
+                    <span *ngIf="updatepassword.controls.confirmpassword.errors.required">
+                        Please provide Confirm Password
+                    </span>
+                </div>
+                <div *ngIf="submitted && updatepassword.controls.confirmpassword.value!=''">
+                    <span *ngIf="updatepassword.controls.confirmpassword.value!=updatepassword.controls.password.value">
+                        Please Provide same password as above
+                    </span>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn-sm btn-primary">update</button>
+          </form>
+          
+         <p *ngIf="flag" class="text-center text-success">password update sucessfully</p>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary"
+                  data-dismiss="modal">Close</button>
+
+          </div>
+      </div>
+  </div>
+</div>
+
+</body>
+</html>

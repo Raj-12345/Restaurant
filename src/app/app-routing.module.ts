@@ -12,6 +12,9 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { SignupComponent } from './signup/signup.component';
 import { SingleblogComponent } from './singleblog/singleblog.component';
 import{UsercheckGuard} from '../app/usercheck.guard'
+import { UserprofileComponent } from './userprofile/userprofile.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'login',component:LoginComponent},
@@ -24,7 +27,10 @@ const routes: Routes = [
   {path:'blog',component:BlogComponent},
   {path:'singleblog',component:SingleblogComponent},
   {path:'cart',component:AddtocartComponent},
-
+  {path:'cart',component:AddtocartComponent},
+  {path:'userprofile',component:UserprofileComponent},
+  {path:'forgotpassword',component:ForgotpasswordComponent},
+  {path:'reset_password/:token',component:ResetpasswordComponent}
 
 ];
 

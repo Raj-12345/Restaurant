@@ -24,7 +24,10 @@ import {HttpClientModule} from '@angular/common/http';
 import{MyserviceService} from './myservice.service';
 
 import{SocialLoginModule,SocialAuthServiceConfig} from 'angularx-social-login' 
-import{GoogleLoginProvider} from 'angularx-social-login' 
+import{GoogleLoginProvider} from 'angularx-social-login';
+import { UserprofileComponent } from './userprofile/userprofile.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component' 
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import{GoogleLoginProvider} from 'angularx-social-login'
     LoginComponent,
     SignupComponent,
     AddtocartComponent,
-    MycartheaderComponent
+    MycartheaderComponent,
+    UserprofileComponent,
+    ForgotpasswordComponent,
+    ResetpasswordComponent
   ],
   imports: [
     SocialLoginModule,

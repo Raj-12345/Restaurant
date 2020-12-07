@@ -37,14 +37,14 @@ user:SocialUser;
         if(user)
         {
           sessionStorage.setItem('login','true');
-    this.user=user;
-    
+          sessionStorage.setItem('name',user.name);
+          sessionStorage.setItem('email',user.email);
+          sessionStorage.setItem('photoUrl',user.photoUrl);
        this.router.navigate(['/menu']);
         }
         else
         {
-        
-          this.user=user;
+      
           this.router.navigate(['/login']);
      
         }
@@ -55,9 +55,12 @@ user:SocialUser;
     console.log(this.loginform)
     if (this.loginform.valid) {
       this.myservice.login(this.loginform.value).subscribe((user) => {
-       
+  
         this.submitted = false;
-        console.log(user);
+
+        sessionStorage.setItem('name',user.user.name);
+          sessionStorage.setItem('email',user.user.email);
+          sessionStorage.setItem('photoUrl',user.user.photoUrl);
         if(user.flag==true)
         {
           sessionStorage.setItem('login','true');
